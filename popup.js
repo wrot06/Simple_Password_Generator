@@ -9,7 +9,7 @@ const uppercase=document.getElementById("uppercase");
 const numbers=document.getElementById("numbers");
 const special=document.getElementById("special");
 
-loadPassword();
+loadSettings();
 
 lengthSlider.addEventListener("input",()=>{
 
@@ -69,21 +69,53 @@ function generatePassword(){
 
   output.value=password;
 
-  savePassword(password);
+  saveSettings(password);
 
 }
 
-function savePassword(password){
+function saveSettings(password){
 
   chrome.storage.local.set({
-    savedPassword:password
+
+    savedPassword:password,
+    passwordLength:lengthSlider.value,
+    uppercase:uppercase.checked,
+    numbers:numbers.checked,
+    special:special.checked
+
   });
 
 }
 
-function loadPassword(){
+function loadSettings(){
 
-  chrome.storage.local.get(["savedPassword"],(result)=>{
+  chrome.storage.local.get([
+    "savedPassword",
+    "passwordLength",
+    "uppercase",
+    "numbers",
+    "special"
+  ],(result)=>{
+
+    if(result.passwordLength){
+
+      lengthSlider.value=result.passwordLength;
+
+      lengthValue.innerText=result.passwordLength;
+
+    }
+
+    if(result.uppercase!==undefined){
+      uppercase.checked=result.uppercase;
+    }
+
+    if(result.numbers!==undefined){
+      numbers.checked=result.numbers;
+    }
+
+    if(result.special!==undefined){
+      special.checked=result.special;
+    }
 
     if(result.savedPassword){
 
