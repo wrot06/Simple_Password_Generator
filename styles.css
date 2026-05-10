@@ -1,0 +1,56 @@
+body{
+  width:320px;
+  padding:6px;
+}
+
+.container{
+  padding:6px!important;
+}
+
+.options{
+  display:flex;
+  gap:10px;
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+
+#lengthSlider{
+  width:100%;
+}
+
+
+
+
+.lengthBox{
+  margin-bottom:10px;
+}
+
+.lengthBox{
+  width:100%;
+  margin-bottom:10px;
+  accent-color: #00ebc7;
+}
+
+.label{
+  margin-bottom:2px!important;
+  font-size:15px!important;
+}
+
+#passwordOutput{
+  font-size:19px;
+}
+
+#copyBtn{
+  padding-inline:10px;
+}
+
+.developer{
+  margin-bottom:4px;
+}
+
+#developerLink{
+  font-size:9px;
+  color:#7a7a7a;
+  text-decoration:none;
+}
